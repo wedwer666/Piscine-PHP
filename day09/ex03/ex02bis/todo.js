@@ -1,7 +1,7 @@
 
 function addLi(targetUl) {
 
-  var inputText = document.getElementById('text').value,
+      inputText = document.getElementById('text').value,
       li = document.createElement('li'),
       textNode = document.createTextNode(inputText + ' '),
       removeButton = document.createElement('button');
@@ -18,11 +18,12 @@ function addLi(targetUl) {
   li.appendChild(textNode);
   li.appendChild(removeButton);
   targetUL=document.getElementById("list");
-  targetUL.innerHTML="<li>"+inputText+"<button class=\"removeMe\" onclick=\"removeMe(this);\"> DONE!</button></li>"+targetUl.innerHTML;
+  targetUL.innerHTML="<li>"+inputText+"<button class=\"removeMe\" onclick=\"removeMe(this);\"> Sterge!</button></li>"+targetUl.innerHTML;
   
 }
 
+
 function removeMe(item){
-  var parent = item.parentElement;
+  parent = item.parentElement;
   parent.parentElement.removeChild(parent);
 }
