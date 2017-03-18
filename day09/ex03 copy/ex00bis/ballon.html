@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>balloon</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<style>
+		#balloon{
+			position:fixed;
+			top: 40%;
+    		left: 45%;
+			border-radius: 50%;
+			margin: auto;
+			height: 200px;
+ 			width: 200px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+<div id="balloon" onclick="newChangeHeight()" onmouseout="newDecrease()"></div>
+	<script>
+		var i = 1;
+		var ball = $("#balloon");
+		
+		var col = ["red", "green", "blue"];
+		
+		function newChangeHeight() 
+		{
+			ball.css('height',ball.outerHeight() + 10 + 'px');
+			ball.css('width',ball.outerWidth() + 10 + 'px');
+			ball.css('background-color', col[i++]);
+			if(i > 2)
+				i = 0;
+			if(ball.outerHeight() > 420)
+			{
+				ball.css('height', '200px');
+				ball.css('width', '200px');				
+			}
+			
+		}
+		function newDecrease() 
+		{
+			
+			if(ball.outerHeight() > 200)
+			{	
+				ball.css('height',ball.outerHeight() - 5 + 'px');
+				ball.css('width',ball.outerWidth() - 5 + 'px');
+				ball.css('background-color', col[i--]);
+				
+				if (i < 0)
+					i = 2;
+			}
+			
+		}
+	</script>
+	</body>
+</html>
