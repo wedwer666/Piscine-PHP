@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <style type="text/css">
+    </style>
+</head>
+<body>
+<form onsubmit="load()">
+    <input type="text" id="input1" />
+    <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+    </select>
+    <input type="text" id="input2" />
+    <input type="submit" value="Try Me!" id="eval" />
+</form>
+<script type="text/javascript">
+
+    var a;
+    var oper;
+    var b;
+
+    setInterval( function () { alert( 'Please, use me...' ); }, 30000 );
+
+    function operate( a, op, b )
+    {
+        if ( op == '+' )
+            return a + b;
+        else if ( op == '-' )
+            return a - b;
+        else if ( op == '*' )
+            return a * b;
+        else if ( op == '/' )
+            return a / b;
+        else if ( op == '%' )
+            return a % b;
+    }
+
+    function load()
+    {
+        a = parseInt( document.getElementById( 'input1' ).value );
+        oper = document.getElementById( 'operator' ).value;
+        b = parseInt( document.getElementById( 'input2' ).value );
+
+        if ( isNaN( a ) )
+            a = 0;
+        if ( isNaN( b ) )
+            b = 0;
+        if ( a < 0 || b < 0 )
+            alert( "Error :(" );
+        else if ( b == 0 && ( oper == '/' || oper == '%' ) )
+        {
+            alert( "It’s over 9000!" );
+            console.log( "It’s over 9000!" );
+        }
+        else
+        {
+            alert( operate( a, oper, b ) );
+            console.log( operate( a, oper, b ) );
+        }
+    }
+
+
+</script>
+</body>
+</html>

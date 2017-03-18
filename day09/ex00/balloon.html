@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>balloon</title>
+	<style>
+		#balloon{
+			position:fixed;
+			top: 40%;
+    		left: 45%;
+			border-radius: 50%;
+			margin: auto;
+			height: 200px;
+ 			width: 200px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="balloon" onclick="changeHeight()" onmouseout="decrease()"></div>
+	<script>
+		var bob;
+		var i = 1;
+		bob = document.getElementById("balloon");
+
+		function changeHeight() 
+		{
+			var col = ["red", "green", "blue"];
+			bob.style.height = bob.offsetHeight + 10 + "px";
+			bob.style.width = bob.offsetWidth + 10 + "px";
+			bob.style.backgroundColor = col[i];
+			i++;
+			if (i > 2)
+				i = 0;
+
+			if (bob.offsetHeight > 420)
+			{
+				bob.style.height = 200 + "px";
+				bob.style.width = 200 + "px";
+			}
+		}
+
+		function decrease() 
+		{
+			var col = ["red", "green", "blue"];
+			if (bob.offsetHeight > 200)
+			{
+			bob.style.height = bob.offsetHeight - 5 + "px";
+			bob.style.width = bob.offsetWidth - 5 + "px";
+			bob.style.backgroundColor = col[i];
+			i--;
+			if (i < 0)
+				i = 2;
+			}
+
+		}
+	</script>
+</body>
+</html>
